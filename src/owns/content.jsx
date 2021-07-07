@@ -31,9 +31,13 @@ let deepClone = target => {
 const Content = (props) => {
     const [titleList, setTitleList] = useState(props.titleList)
     useEffect(() => {
-        props.handleChange(props.titleList.length - 1)
-        setTitleList(props.titleList)
-    }, [titleList, props.titleList])
+        if (props.current !== props.titleList.length - 1) {
+            setTitleList(props.titleList)
+        } else {
+            props.handleChange(props.titleList.length - 1)
+            setTitleList(props.titleList)
+        }
+    }, [titleList, props.titleList, props.current])
     return (
         <div className='content-body'>
             {
@@ -45,7 +49,7 @@ const Content = (props) => {
                         <div className='content-taglist'>
                             {
                                 titleList && titleList.map((val, idx) => {
-                                    return <div className='block_con' key={idx}>
+                                    return <div className={props.current !== idx ? 'block_con' : 'choose_block_con'} key={idx}>
                                         <div className='block_name' onClick={() => {
                                             props.handleChange(idx)
                                         }}>
@@ -56,6 +60,9 @@ const Content = (props) => {
                                                 props.titleList.splice(idx, 1)
                                                 setTitleList([...props.titleList])
                                                 props.handleChange(idx)
+                                                if (props.titleList.length === 0) {
+                                                    props.handleDeleteCurrent()
+                                                }
                                             } else {
                                                 props.titleList.splice(idx, 1)
                                                 setTitleList([...props.titleList])
@@ -105,6 +112,12 @@ const mapDispatchToProps = (dispatch) => {
             const action = {
                 type: 'SELECT_LIST',
                 value: res
+            }
+            return dispatch(action)
+        },
+        handleDeleteCurrent() {
+            const action = {
+                type: 'DELETE_CURRENT',
             }
             return dispatch(action)
         }

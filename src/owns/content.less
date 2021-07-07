@@ -12,6 +12,32 @@
       border-right: 1px solid rgba(235, 215, 37, 0.89);
       border-left: 1px solid rgba(235, 215, 37, 0.89);
 
+      .choose_block_con {
+        width: 150px;
+        height: 100%;
+        border-top-right-radius: 50%;
+        border: 2px solid rgba(235, 215, 37, 0.89);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(207, 75, 233, 0.89);
+
+        .block_name {
+          padding-left: 3px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100px;
+          max-width: 130px;
+          overflow: hidden;
+          cursor: pointer;
+        }
+
+        .block_close {
+          cursor: pointer;
+          padding-right: 10px;
+        }
+      }
+
       .block_con {
         width: 150px;
         height: 100%;

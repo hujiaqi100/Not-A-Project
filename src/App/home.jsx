@@ -20,6 +20,7 @@ const Home = (props) => {
                 ) {
                     return;
                 } else {
+                    props.handleUpdate()
                     titleList.push(data)
                     setTitleList([...titleList])
                 }
@@ -52,7 +53,8 @@ const Home = (props) => {
 const mapStateToProps = (state) => {
     return {
         list: state.list,
-        isEmpty: state.isEmpty
+        isEmpty: state.isEmpty,
+        current: state.current
     }
 }
 // store.dispatch ,props
@@ -64,6 +66,19 @@ const mapDispatchToProps = (dispatch) => {
                 value: res
             }
             return dispatch(action)
+        },
+        handleChange(res) {
+            const action = {
+                type: 'SELECT_CURRENT',
+                value: res
+            }
+            dispatch(action)
+        },
+        handleUpdate() {
+            const action = {
+                type: 'UPDATE_LIST'
+            }
+            dispatch(action)
         }
     }
 }

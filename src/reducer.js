@@ -2,7 +2,7 @@ import React from 'react';
 const defaultState = {
     inputValue: '',
     list: [],
-    current: 0,
+    current: -1,
     isEmpty: false,
     selectText: {},
     deepList: [],
@@ -10,6 +10,16 @@ const defaultState = {
 }
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = defaultState, action) => {
+    if (action.type === 'UPDATE_LIST') {
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.current = newState.current + 1
+        return newState;
+    }
+    if (action.type === 'DELETE_CURRENT') {
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.current = -1
+        return newState;
+    }
     if (action.type === 'change_input_value') {
         const newState = JSON.parse(JSON.stringify(state))
         newState.inputValue = action.value;
