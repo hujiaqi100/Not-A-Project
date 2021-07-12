@@ -6,9 +6,11 @@ import Content from './Content/content'
 import ContentMore from '../owns/content.jsx'
 import { connect } from 'react-redux'
 import reg from '../registrer.js'
+
 const Home = (props) => {
     const [titleList, setTitleList] = useState(props.titleList || [])
     useEffect(() => {
+       
         const getInfo = (res) => {
             if (res.data.treeNode) {
                 let x = reg.find(d => d.treeNode === res.data.treeNode.treeNodeInfo)

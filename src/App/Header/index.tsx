@@ -56,7 +56,7 @@ const Header = (props) => {
     return (
         <div className='Header' >
             <Link to='/home' className='title-lay' >
-                Small-dataQ
+                胡家琦的小窝
             </Link>
             <div className='lay'>
                 {

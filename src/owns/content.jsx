@@ -34,16 +34,16 @@ const Content = (props) => {
         if (props.current !== props.titleList.length - 1) {
             setTitleList(props.titleList)
         } else {
-            props.handleChange(props.titleList.length - 1)
+            props.handleChange(props.current)
             setTitleList(props.titleList)
         }
-    }, [titleList, props.titleList, props.current])
+    }, [titleList, props.titleList])
     return (
         <div className='content-body'>
             {
                 titleList && titleList.length === 0 ?
                     <div className='content'>
-                        Small-dataQ
+                        胡家琦的小窝
                     </div> :
                     <div className='content-body'>
                         <div className='content-taglist'>
@@ -120,6 +120,12 @@ const mapDispatchToProps = (dispatch) => {
                 type: 'DELETE_CURRENT',
             }
             return dispatch(action)
+        },
+        handleUpdate() {
+            const action = {
+                type: 'UPDATE_LIST'
+            }
+            dispatch(action)
         }
     }
 }

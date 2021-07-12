@@ -19,14 +19,14 @@ export default
             ]
         },
         {
-            name: 'javascript',
+            name: 'canvas',
             id: '2',
             children: [
                 {
-                    name: 'javascript基础',
+                    name: '轮播',
                     id: '2-1',
-                    parentId: '2',
-                    children: []
+                    treeNode: 'lunbo',
+                    parentId: '2'
                 }
             ]
         }

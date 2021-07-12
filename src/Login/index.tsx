@@ -12,7 +12,7 @@ const Login = (props) => {
     const title = () => {
         return (
             <div className='title'>
-                Small-dataQ
+                胡家琦的小窝
             </div>
         )
     }
