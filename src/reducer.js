@@ -12,7 +12,12 @@ const defaultState = {
 export default (state = defaultState, action) => {
     if (action.type === 'UPDATE_LIST') {
         const newState = JSON.parse(JSON.stringify(state))
-        newState.current = newState.current + 1
+        newState.current = action.value - 1
+        return newState;
+    }
+    if (action.type === 'CANCEL_LIST') {
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.current = newState.current - 1
         return newState;
     }
     if (action.type === 'DELETE_CURRENT') {

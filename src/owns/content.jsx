@@ -31,6 +31,14 @@ let deepClone = target => {
 const Content = (props) => {
     const [titleList, setTitleList] = useState(props.titleList)
     useEffect(() => {
+        if (props.current !== props.titleList.length - 1) {
+            setTitleList(props.titleList)
+        } else {
+            props.handleChange(props.current)
+            setTitleList(props.titleList)
+        }
+    }, [props.titleList])
+    useEffect(() => {
         const chooseTag = (res) => {
             if (res.data.treeNode) {
                 titleList.map((val, idx) => {
@@ -45,14 +53,6 @@ const Content = (props) => {
             removeEventListener('message', chooseTag)
         }
     }, [props.current])
-    useEffect(() => {
-        if (props.current !== props.titleList.length - 1) {
-            setTitleList(props.titleList)
-        } else {
-            props.handleChange(props.current)
-            setTitleList(props.titleList)
-        }
-    }, [titleList, props.titleList])
     return (
         <div className='content-body'>
             {
@@ -82,6 +82,7 @@ const Content = (props) => {
                                                 props.titleList.splice(idx, 1)
                                                 setTitleList([...props.titleList])
                                                 props.handleChange(idx - 1)
+                                                props.handleChangeList(props.titleList)
                                             }
                                         }}>
                                             X
@@ -139,6 +140,13 @@ const mapDispatchToProps = (dispatch) => {
         handleUpdate() {
             const action = {
                 type: 'UPDATE_LIST'
+            }
+            dispatch(action)
+        },
+        handleCancel(res) {
+            const action = {
+                type: 'CANCEL_LIST',
+                value: res
             }
             dispatch(action)
         }

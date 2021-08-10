@@ -10,7 +10,7 @@ import reg from '../registrer.js'
 const Home = (props) => {
     const [titleList, setTitleList] = useState(props.titleList || [])
     useEffect(() => {
-       
+
         const getInfo = (res) => {
             if (res.data.treeNode) {
                 let x = reg.find(d => d.treeNode === res.data.treeNode.treeNodeInfo)
@@ -22,9 +22,9 @@ const Home = (props) => {
                 ) {
                     return;
                 } else {
-                    props.handleUpdate()
                     titleList.push(data)
                     setTitleList([...titleList])
+                    props.handleUpdate(titleList.length)
                 }
             }
         }
@@ -76,9 +76,10 @@ const mapDispatchToProps = (dispatch) => {
             }
             dispatch(action)
         },
-        handleUpdate() {
+        handleUpdate(res) {
             const action = {
-                type: 'UPDATE_LIST'
+                type: 'UPDATE_LIST',
+                value: res
             }
             dispatch(action)
         }
