@@ -31,6 +31,21 @@ let deepClone = target => {
 const Content = (props) => {
     const [titleList, setTitleList] = useState(props.titleList)
     useEffect(() => {
+        const chooseTag = (res) => {
+            if (res.data.treeNode) {
+                titleList.map((val, idx) => {
+                    if (val.name === res.data.treeNode.name) {
+                        props.handleChange(idx)
+                    }
+                })
+            }
+        }
+        window.addEventListener('message', chooseTag)
+        return () => {
+            removeEventListener('message', chooseTag)
+        }
+    }, [props.current])
+    useEffect(() => {
         if (props.current !== props.titleList.length - 1) {
             setTitleList(props.titleList)
         } else {
