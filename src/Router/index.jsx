@@ -20,7 +20,7 @@ const Start = (props) => {
                         <FontContent />
                     </Home>
                 }} />
-                <Route exact path='/home/back' component={(match) => {
+                {/* <Route exact path='/home/back' component={(match) => {
                     return <Home titleList={match.location.state}>
                         <BackContent />
                     </Home>
@@ -34,12 +34,12 @@ const Start = (props) => {
                     return <Home>
                         <OperationContent />
                     </Home>
-                }} />
-                <Route exact path='/home/others' component={() => {
+                }} /> */}
+                {/* <Route exact path='/home/others' component={() => {
                     return <Home>
                         <OthersContent />
                     </Home>
-                }} />
+                }} /> */}
                 <Route path="/404" component={Red} />
                 <Redirect from='*' to='/404' />
             </Switch>

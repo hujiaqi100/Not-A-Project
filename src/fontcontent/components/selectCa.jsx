@@ -94,11 +94,45 @@
 // }
 // export default SelectCa;
 
+const Select = () => {
+    const [showContent, setShowContent] = useState(false)
+    useEffect(() => {
+        document.addEventListener('click', () => {
+            setShowContent(false)
+        }, true)
+    }, [])
+    console.log(showContent);
+    return (
+        <div style={{ width: '200px' }}>
+            <div className='blank'>
+                <div className='content'>
+                </div>
+                <div onClick={() => {
+                    setShowContent(true)
+                }} className='arrow'>
+                    {'>'}
+                </div>
+            </div>
+            {
+                showContent && <div className='xx'>
+
+                </div>
+            }
+        </div>
+    )
+}
 import React, { useState, useEffect } from 'react';
+require('./selectca.less')
 const SelectCa = () => {
     return (
-        <div>
-            aa
+        <div className='select-ca'>
+            {/* <div className='com'>
+                <Select />
+            </div>
+            <div className='code'>
+
+            </div> */}
+            a
         </div>
     )
 }

@@ -16,6 +16,12 @@ export default
                     treeNode: 'selectca',
                     parentId: '1',
                 },
+                {
+                    name: 'Table组件',
+                    id: '1-3',
+                    treeNode: 'tableca',
+                    parentId: '1',
+                }
             ]
         },
         {
@@ -27,6 +33,18 @@ export default
                     id: '2-1',
                     treeNode: 'lunbo',
                     parentId: '2'
+                }
+            ]
+        },
+        {
+            name: 'hook使用例子',
+            id: '3',
+            children: [
+                {
+                    name: 'useReducer',
+                    id: '3-1',
+                    treeNode: 'usereducer',
+                    parentId: '3'
                 }
             ]
         }

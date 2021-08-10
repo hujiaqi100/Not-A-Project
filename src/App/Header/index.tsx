@@ -4,28 +4,28 @@ import './index.less'
 import { Link } from 'react-router-dom'
 const Header = (props) => {
     const headerContent = [
-        {
-            key: '0',
-            value: <Link to={{
-                pathname: '/home/font',
-                state: props.titleList
-            }} className='title'>
-                <span className='name'>
-                    前端小常识
-                </span>
-            </Link>
-        },
-        {
-            key: '1',
-            value: <Link to={{
-                pathname: '/home/back',
-                state: props.titleList
-            }} className='title'>
-                <span className='name'>
-                    后端小常识
-                </span>
-            </Link>
-        },
+        // {
+        //     key: '0',
+        //     value: <Link to={{
+        //         pathname: '/home/font',
+        //         state: props.titleList
+        //     }} className='title'>
+        //         <span className='name'>
+        //             前端小常识
+        //         </span>
+        //     </Link>
+        // },
+        // {
+        //     key: '1',
+        //     value: <Link to={{
+        //         pathname: '/home/back',
+        //         state: props.titleList
+        //     }} className='title'>
+        //         <span className='name'>
+        //             后端小常识
+        //         </span>
+        //     </Link>
+        // },
         // {
         //     key: '2',
         //     value: <Link to='/home/net' className='title'>

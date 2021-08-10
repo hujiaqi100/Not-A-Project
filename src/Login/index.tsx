@@ -47,7 +47,7 @@ const Login = (props) => {
     }
     const subMit = () => {
         if (username === loginMock.username && password === loginMock.password) {
-            props.history.push('/home')
+            props.history.push('/home/font')
         } else {
             setUserError('请输入正确的用户名')
             setPassError('请输入正确的密码')
